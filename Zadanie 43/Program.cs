@@ -1,44 +1,21 @@
-﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. 
-// Посчитайте, сколько чисел больше 0 ввёл пользователь.
+﻿// Напишите программу, которая найдёт точку пересечения двух прямых, 
+// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 
+// задаются пользователем.
 
-// 0, 7, 8, -2, -2 -> 2
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
-// 1, -7, 567, 89, 223-> 3
+System.Console.Write("Введите число K1: ");
+var numbk1 = Convert.ToDouble(Console.ReadLine());
+System.Console.Write("Введите число B1: ");
+var numbb1 = Convert.ToDouble(Console.ReadLine());
 
+System.Console.Write("Введите число K2: ");
+var numbk2 = Convert.ToDouble(Console.ReadLine());
+System.Console.Write("Введите число B2: ");
+var numbb2 = Convert.ToDouble(Console.ReadLine());
 
-System.Console.Write("Введите числа с пробелами: ");
+double numx = (numbb1-numbb2)/(numbk2 - numbk1);
+   
+double numy = numbk2*numx + numbb2;
 
-string str = Console.ReadLine();
-string[] array = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-
-var num = FillNum(array);
-System.Console.WriteLine(CountPositivNum(num));
-
-
-
-int[] FillNum(string[] array)
-{
-
-    int[] numbers = new int[array.Length];
-
-    for (int i = 0; i < array.Length; i++)
-    {
-        numbers[i] = int.Parse/*Convert.ToInt32*/(array[i]);
-    }
-    return numbers;
-}
-
-int CountPositivNum(int[] array)
-{
-    int count = 0;
-    foreach (int item in array)
-    {
-        if (item > 0)
-        {
-            count++;
-        }
-    }
-    return count;
-}
-
+System.Console.WriteLine($"({numx}, {numy})");
